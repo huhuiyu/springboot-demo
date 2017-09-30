@@ -1,0 +1,56 @@
+apply plugin: "java"
+apply plugin: "eclipse"
+apply plugin: "org.springframework.boot"
+	
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+[compileJava, compileTestJava]*.options*.encoding = "UTF-8"
+
+version = "1.0.0.0"
+
+buildscript {
+	repositories {
+	   	maven {url "http://maven.aliyun.com/nexus/content/groups/public/"}
+		mavenLocal()
+		mavenCentral()
+	}
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
+    }
+}
+
+repositories {
+   	maven {url "http://maven.aliyun.com/nexus/content/groups/public/"}
+	mavenLocal()
+	mavenCentral()
+}
+
+configurations {
+    all*.exclude module : "spring-boot-starter-logging"
+    all*.exclude module : "logback-classic"
+    all*.exclude module : "log4j-over-slf4j"
+}
+
+bootRun {   
+	addResources = true
+}
+
+dependencies {
+	compile("org.springframework.boot:spring-boot-starter-websocket")
+    compile("com.alibaba:fastjson:1.2.24")
+	compile("org.springframework.boot:spring-boot-starter-web") {
+		exclude module: "spring-boot-starter-jetty"
+	}
+    compile("org.springframework.boot:spring-boot-starter-tomcat")
+	compile("org.springframework.boot:spring-boot-starter-actuator")
+	compile group: "mysql", name: "mysql-connector-java", version: "6.0.6"
+    
+    compile ("org.springframework.boot:spring-boot-starter-log4j2")
+    
+	compile group: "org.mybatis.spring.boot", name: "mybatis-spring-boot-starter", version: "1.3.0"
+	compile group: "com.fasterxml.jackson.dataformat", name: "jackson-dataformat-yaml", version: "2.9.0"
+	compile group: "org.springframework.boot", name: "spring-boot-devtools", version: "1.5.6.RELEASE"
+    compile group: "com.github.pagehelper", name: "pagehelper-spring-boot-starter", version: "1.1.3"
+}

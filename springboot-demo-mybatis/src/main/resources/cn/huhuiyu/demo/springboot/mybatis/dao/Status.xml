@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.huhuiyu.demo.springboot.mybatis.dao.StatusDAO">
+	<select id="queryAll" resultType="hashMap" parameterType="hashMap">
+		select * from TblStatus
+	</select>
+
+	<select id="queryAll_COUNT" resultType="long" parameterType="hashMap">
+		select count(*) from TblStatus
+	</select>
+</mapper>  

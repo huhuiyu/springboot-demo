@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/HuhuiyuDemo?useUnicode=true&useSSL=false&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8
+    username: paul
+    password: huhuiyu
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+    converters:
+      preferred-json-mapper: fastjson
+mybatis:
+  config-location: classpath:mybatis.xml
+server:
+  port: 9600

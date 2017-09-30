@@ -1,0 +1,27 @@
+Configuration:
+  status: warn
+  Appenders:
+    Console:
+      name: Console
+      target: SYSTEM_OUT
+      PatternLayout:
+        pattern: "%-5level %l %n\t%d{HH:mm:ss.SSS}-->%msg%n"
+    RollingFile:
+      name: RollingFile
+      fileName: logs/huhuiyu.log
+      filePattern: log/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz
+      PatternLayout:
+        pattern: "%-5level %l %n\t%d{HH:mm:ss.SSS}-->%msg%n"
+      SizeBasedTriggeringPolicy:
+        size: 50MB
+  Loggers:
+    Logger:
+    - name: cn.huhuiyu.demo
+      level: ERROR
+      additivity: false
+      AppenderRef:
+        ref: RollingFile
+    Root:
+      level: INFO
+      AppenderRef:
+        ref: Console
