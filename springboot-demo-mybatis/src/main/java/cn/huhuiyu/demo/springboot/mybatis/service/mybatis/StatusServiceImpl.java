@@ -16,14 +16,20 @@ import cn.huhuiyu.demo.springboot.mybatis.service.StatusService;
 import cn.huhuiyu.demo.springboot.mybatis.utils.JsonMessage;
 import cn.huhuiyu.demo.springboot.mybatis.utils.Utils;
 
+/**
+ * 
+ * @author huhuiyu
+ *
+ */
 @Component
 @Transactional(rollbackFor = Exception.class)
 public class StatusServiceImpl implements StatusService {
     @Autowired
     private StatusDAO statusDAO;
 
+    @Override
     public JsonMessage queryAll(Map<String, Object> params) throws Exception {
-        Map<String, Object> dataMap = new HashMap<String, Object>();
+        Map<String, Object> dataMap = new HashMap<String, Object>(16);
         List<Integer> list = Utils.parsePageInfo(params);
         PageHelper.startPage(list.get(0), list.get(1));
         Page<Map<String, Object>> page = (Page<Map<String, Object>>) statusDAO.queryAll(params);

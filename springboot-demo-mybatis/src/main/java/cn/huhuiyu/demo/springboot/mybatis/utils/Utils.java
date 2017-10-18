@@ -9,7 +9,15 @@ import java.util.Map;
 
 import com.github.pagehelper.Page;
 
+/**
+ * 
+ * @author huhuiyu
+ *
+ */
 public class Utils {
+    private static final String PAGE_SIZE = "pageSize";
+    private static final String PAGE_NUMBER = "pageNumber";
+
     public static Date getToday() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 0);
@@ -20,23 +28,23 @@ public class Utils {
     }
 
     public static Map<String, Object> getPageInfo(Page<?> page) {
-        Map<String, Object> pageinfo = new HashMap<String, Object>();
+        Map<String, Object> pageinfo = new HashMap<String, Object>(16);
         pageinfo.put("total", page.getTotal());
-        pageinfo.put("pageNumber", page.getPageNum());
-        pageinfo.put("pageSize", page.getPageSize());
+        pageinfo.put(PAGE_NUMBER, page.getPageNum());
+        pageinfo.put(PAGE_SIZE, page.getPageSize());
         pageinfo.put("pageCount", page.getPages());
         return pageinfo;
     }
 
     public static List<Integer> parsePageInfo(Map<String, Object> params) {
         List<Integer> pageinfo = new ArrayList<Integer>();
-        if (params.containsKey("pageNumber")) {
-            pageinfo.add(Integer.parseInt(params.get("pageNumber").toString()));
+        if (params.containsKey(PAGE_NUMBER)) {
+            pageinfo.add(Integer.parseInt(params.get(PAGE_NUMBER).toString()));
         } else {
             pageinfo.add(1);
         }
-        if (params.containsKey("pageSize")) {
-            pageinfo.add(Integer.parseInt(params.get("pageSize").toString()));
+        if (params.containsKey(PAGE_SIZE)) {
+            pageinfo.add(Integer.parseInt(params.get(PAGE_SIZE).toString()));
         } else {
             pageinfo.add(10);
         }

@@ -9,6 +9,11 @@ import org.springframework.context.annotation.Configuration;
 
 import com.github.pagehelper.PageHelper;
 
+/**
+ * 
+ * @author huhuiyu
+ *
+ */
 @Configuration
 public class MybatisConfig {
     private static Logger logger = LogManager.getLogger(MybatisConfig.class);

@@ -6,15 +6,34 @@ import java.util.Map;
 
 import com.alibaba.fastjson.annotation.JSONType;
 
+/**
+ * 
+ * @author huhuiyu
+ *
+ */
 @JSONType(typeName = "JsonMessage")
 public class JsonMessage implements Serializable {
     private static final long serialVersionUID = 5414116991779501076L;
-
-    private boolean success = false; // 是否成功
-    private String message = "服务器忙，请稍候重试"; // 服务器消息
-    private int code = 500; // 应答结果代码
-    private Map<String, Object> dataMap = new HashMap<String, Object>(); // 服务器数据
-    private long now; // 当前时间戳
+    /**
+     * 是否成功
+     */
+    private boolean success = false;
+    /**
+     * 服务器消息
+     */
+    private String message = "服务器忙，请稍候重试";
+    /**
+     * 应答结果代码
+     */
+    private int code = 500;
+    /**
+     * 服务器数据
+     */
+    private Map<String, Object> dataMap = new HashMap<String, Object>();
+    /**
+     * 当前时间戳
+     */
+    private long now;
 
     public static JsonMessage getJsonMessage(boolean success, String message, int code, Map<String, Object> dataMap) {
         JsonMessage jsonMessage = new JsonMessage();

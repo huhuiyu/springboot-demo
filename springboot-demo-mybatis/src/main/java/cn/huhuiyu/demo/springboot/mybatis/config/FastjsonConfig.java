@@ -16,6 +16,11 @@ import com.alibaba.fastjson.serializer.ValueFilter;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 
+/**
+ * 
+ * @author huhuiyu
+ *
+ */
 @Configuration
 public class FastjsonConfig {
 
@@ -27,6 +32,7 @@ public class FastjsonConfig {
         JSONObject.DEFFAULT_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
         fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat, SerializerFeature.WriteMapNullValue, SerializerFeature.WriteDateUseDateFormat);
         ValueFilter valueFilter = new ValueFilter() {
+            @Override
             public Object process(Object o, String s, Object o1) {
                 if (null == o1) {
                     o1 = "";

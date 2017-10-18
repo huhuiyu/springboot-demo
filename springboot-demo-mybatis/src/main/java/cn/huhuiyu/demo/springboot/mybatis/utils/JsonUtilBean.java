@@ -7,6 +7,11 @@ import java.util.Map;
 
 import com.alibaba.fastjson.JSON;
 
+/**
+ * 
+ * @author huhuiyu
+ *
+ */
 public class JsonUtilBean implements Serializable {
     private static final long serialVersionUID = 8379047733510223756L;
 

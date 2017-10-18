@@ -1,5 +1,10 @@
 package cn.huhuiyu.demo.springboot.mybatis.exception;
 
+/**
+ * 
+ * @author huhuiyu
+ *
+ */
 public class MyException extends Exception {
 
     private static final long serialVersionUID = -9218716733248057869L;

@@ -14,6 +14,11 @@ import cn.huhuiyu.demo.springboot.mybatis.exception.MyException;
 import cn.huhuiyu.demo.springboot.mybatis.service.StatusService;
 import cn.huhuiyu.demo.springboot.mybatis.utils.JsonMessage;
 
+/**
+ * 
+ * @author huhuiyu
+ *
+ */
 @RestController
 @RequestMapping("/http/status")
 public class StatusController {
